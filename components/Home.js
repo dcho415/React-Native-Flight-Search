@@ -4,6 +4,7 @@ import FlightsData from "../assets/flights.json";
 import Header from './layout/Heading';
 import Search from './Search';
 import ResultsHeading from './ResultsHeading';
+import Results from './Results';
 
 class App extends Component {
     state = {
@@ -11,21 +12,19 @@ class App extends Component {
         dest: '',
         depDate: '',
         retDate: '',
-        passengers: 0, 
+        passengers: 1, 
         isReturn: false,
         route: '', 
         upDepDate: '',
         upRetDate: '',
         depFlights: [],
         retFlights: [],
-        setPassengers: 0,
+        setPassengers: 1,
         costMax: 5000
     }
 
     onChange = (data, value) => {
-        console.log(data);
-        console.log(value);
-        this.setState({ [data]: value });
+         this.setState({ [data]: value });
     }
 
     onSubmit = () => {
@@ -42,13 +41,13 @@ class App extends Component {
                 this.setState({ retFlights: [...this.state.flights.filter(flight => flight.origin === this.state.dest &&
                 flight.dest === this.state.origin && flight.date === this.state.retDate)] })
             } else {
-                this.setState({ retFlights: [] }, () => console.log(this.state.retFlights))
+                this.setState({ retFlights: [] })
             }
         }
         )
     }
 
-  onSelect = (value) => this.setState({ isReturn: value==="return" }, () => console.log(this.state.isReturn));
+  onSelect = (value) => this.setState({ isReturn: value==="return" });
 
   updateResultHeading = () => {
     var updatedRoute = this.state.origin + '>' + this.state.dest;
@@ -75,14 +74,14 @@ class App extends Component {
           depDate={this.state.upDepDate}
           retDate={this.state.upRetDate}
         />
-{/*}        <Results
+        <Results
           isLoading={this.state.isLoading}
           error={this.state.error}
           depFlights={this.state.depFlights}
           retFlights={this.state.retFlights}
           passengers={this.state.setPassengers}
           costMax={this.state.costMax}
-        /> */}
+        />
       </View>
     );
   }

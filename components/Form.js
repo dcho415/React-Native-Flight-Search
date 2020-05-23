@@ -12,7 +12,7 @@ export class Form extends Component {
                         type="date"
                         name="retDate"
                         className="form-control"
-                        onChange={this.props.onChange}    
+                        onChange={(value) => this.props.onChange('retDate', value.currentTarget.value)}    
                         required   
                     />
                 </View>
@@ -63,8 +63,8 @@ export class Form extends Component {
                             name="passengers"
                             className="form-control"
                             onChange={(value) => this.props.onChange('passengers', value.currentTarget.value)}
-                            min='1'
-                            defaultValue='1'
+                            min={1}
+                            defaultValue={1}
                             required
                         />
                     </View>
