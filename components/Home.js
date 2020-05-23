@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import FlightsData from "../assets/flights.json";
 import Header from './layout/Heading';
 import Search from './Search';
+import ResultsHeading from './ResultsHeading';
 
 class App extends Component {
     state = {
@@ -22,6 +23,8 @@ class App extends Component {
     }
 
     onChange = (data, value) => {
+        console.log(data);
+        console.log(value);
         this.setState({ [data]: value });
     }
 
@@ -67,12 +70,12 @@ class App extends Component {
           onSelect={this.onSelect} 
           costMax={this.state.costMax}
         />
-        {/* <ResultsHeading 
+        <ResultsHeading 
           route={this.state.route} 
           depDate={this.state.upDepDate}
           retDate={this.state.upRetDate}
         />
-        <Results
+{/*}        <Results
           isLoading={this.state.isLoading}
           error={this.state.error}
           depFlights={this.state.depFlights}

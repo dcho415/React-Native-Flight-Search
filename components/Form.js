@@ -31,7 +31,7 @@ export class Form extends Component {
                             name="origin"
                             placeholder="Enter Origin City"
                             className="form-control"
-                            onChange={this.props.onChange} 
+                            onChange={(value) => this.props.onChange('origin', value.currentTarget.value)} 
                             required
                         />
                     </View>
@@ -41,7 +41,7 @@ export class Form extends Component {
                             name="dest"
                             placeholder="Enter Destination City"
                             className="form-control"
-                            onChange={this.props.onChange} 
+                            onChange={(value) => this.props.onChange('dest', value.currentTarget.value)} 
                             required
                         />
                     </View>
@@ -51,7 +51,7 @@ export class Form extends Component {
                             type="date"
                             name="depDate"
                             className="form-control"  
-                            onChange={this.props.onChange}
+                            onChange={(value) => this.props.onChange('depDate', value.currentTarget.value)}
                             required
                         />
                     </View>
@@ -62,7 +62,7 @@ export class Form extends Component {
                             type="number"
                             name="passengers"
                             className="form-control"
-                            onChange={this.props.onChange}
+                            onChange={(value) => this.props.onChange('passengers', value.currentTarget.value)}
                             min='1'
                             defaultValue='1'
                             required
